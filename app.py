@@ -29,7 +29,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         role = request.form.get('role', 'user')
-        hashed_pw = generate_password_hash(password, method='sha256')
+        hashed_pw = generate_password_hash(password)
         user = User(username=username, password=hashed_pw, role=role)
         db.session.add(user)
         db.session.commit()
